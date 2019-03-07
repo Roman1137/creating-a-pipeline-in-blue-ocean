@@ -18,6 +18,12 @@ pipeline {
       }
       steps {
         sh './jenkins/scripts/test.sh'
+        
+      }
+      post {
+        always {
+          junit 'test-reports/results.xml' 
+        }
       }
     }
   }
